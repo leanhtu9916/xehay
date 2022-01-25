@@ -1,0 +1,42 @@
+@media(max-width: 991px) {
+	.post-news_img img {
+		height: auto;
+	}
+	form.box-search-product select {
+		width: 49%;
+		margin-bottom: 10px;
+	}
+	form.box-search-product button {
+		width: 100%;
+	}
+	section.pro_center {
+		margin: 0;
+	}
+	.sticky {
+		position: unset;
+	}
+}
+@media(max-width: 767px) {
+	
+}
+@media(max-width: 576px) {
+	.list-item-car .item .photo a img {
+	    height: auto;
+	    object-fit: cover;
+	}  
+	.product-feature_slide .slick-nav {
+		left: 15px;
+	}
+	.product-feature_slide .slick-next {
+	    right: 15px;
+	    left: unset;
+	}
+	.header-top {
+		padding: 7px 0;
+		height: auto;
+		line-height: unset;
+	}
+	section.products-tab ul.nav a {
+		font-size: 14px;
+	}
+}
