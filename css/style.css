@@ -219,7 +219,7 @@ table {
     background: rgb(214, 90, 49);
     border-radius: 4px;
     color: #fff !important;
-    margin-top: 15px;
+   
 }
 #mobile-menu ul>li:last-child>a i {
     margin-right: 5px;
@@ -365,6 +365,7 @@ section.products-tab ul.nav a.active {
     min-height: 190px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
+    padding-bottom: 40px;
 }
 .list-item-car .item .title {
     height: 40px;

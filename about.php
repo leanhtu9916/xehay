@@ -1,3 +1,4 @@
+<!-- trang giới thiệu -->
 <?php
 	include_once("config.php");
 	$dt=new database();

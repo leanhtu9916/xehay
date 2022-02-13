@@ -17,7 +17,7 @@
 				?>
 				<tr>
 					<td><?php echo $row['id'] ?></td>
-					<td><?php echo $row['name'] ?></td>
+					<td><?php echo $row['name_dongxe'] ?></td>
 					<td><?php echo $row['count'] ?></td>
 					<td>
 						<a href="index.php?view=product_cat&action=edit&id=<?php echo $row['id'] ?>" class="navbar-link"><i style="color: #444" class="fas fa-pencil-alt"></i></a> || 

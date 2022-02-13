@@ -36,15 +36,19 @@
      <tr>
         <td>Chuyên mục</td>
         <td>
-            <select name="category" id=""  class="form-control">
+        <select name="category" id=""  class="form-control">
+                 <option selected><?php echo $row2['category'] ?></option>
                 <?php
-                    $dt->select('SELECT * FROM category');
-                    while ($row=$dt->fetch()) {
-                      ?>
-                      <option><?php echo $row['name'] ?></option>
-                      <?php
-                    }
+                $dt->select('SELECT * FROM category');
+                while ($row=$dt->fetch()) {
+                    if ($row['name'] != $row2['category']) {
+                     
                   ?>
+                  <option><?php echo $row['name'] ?></option>
+                  <?php
+                 }
+                }
+              ?>
             </select>
         </td>
      </tr>

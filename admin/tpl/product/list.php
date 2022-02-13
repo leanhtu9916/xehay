@@ -19,19 +19,19 @@
 							$pag=$pag*10-10;
 						}
 			$stt=0;
-			$dt->select("SELECT* FROM product ORDER BY id desc limit $pag,10 ");
+			$dt->select("SELECT * FROM product,product_cat WHERE product.category = product_cat.id ORDER BY product_id desc limit $pag,10 ");
 			while ($row=$dt->fetch()) {
 				?>
 				<tr>
-					<td><?php echo $row['id']; ?></td>
-					<td><a href="?view=product&action=edit&id=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></td>
+					<td><?php echo $row['product_id']; ?></td>
+					<td><a href="?view=product&action=edit&id=<?php echo $row['product_id'] ?>"><?php echo $row['name'] ?></a></td>
 					<td><img style="width: 100px;height: 100px;" src="tpl/product/uploads/<?php echo $row['thumbnail'] ?>"></td>
 					<td><?php echo $row['price'] ?></td>
 					<td><?php echo $row['discount'] ?></td>
 					<td><?php echo $row['status'] ?></td>
-					<td><?php echo $row['category'] ?></td>
+					<td><?php echo $row['name_dongxe'] ?></td>
 					<td>
-						<a class="delete" href="tpl/product/action.php?id=<?php echo $row['id'] ?>" class="navbar-link"><i style="color: red" class="fas fa-minus-circle"></i></a>
+						<a class="delete" href="tpl/product/action.php?id=<?php echo $row['product_id'] ?>" class="navbar-link"><i style="color: red" class="fas fa-minus-circle"></i></a>
 					</td>
 				</tr>
 				<?php

@@ -35,16 +35,19 @@
      </tr>
       <tr>
         <td>status</td>
-        <td><select name="status">
-          <option>Mới</option>
-          <?php
-            $dt->select('SELECT * FROM status');
-            while ($row=$dt->fetch()) {
-              ?>
-              <option><?php echo $row['name'] ?></option>
-              <?php
-            }
-          ?>
+        <td><select name="status" id="" class="form-control">
+        <option value="<?php echo $row2['status'] ?>" selected><?php echo $row2['name_status'] ?></option>
+               <?php
+               $dt->select('SELECT * FROM status');
+               while ($row = $dt->fetch()) {
+                  if ($row['id'] != $row2['status']) {
+
+               ?>
+                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name_status'] ?></option>
+               <?php
+                  }
+               }
+               ?>
         </select></td>
      </tr>
      <tr>

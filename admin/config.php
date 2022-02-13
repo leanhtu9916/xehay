@@ -20,8 +20,9 @@
 		public function fetch(){
 			if($this->result->num_rows >0){
 				$row=$this->result->fetch_assoc();
-
+			
 			}else{
+				
 				$row=0;
 			}
 			return $row;

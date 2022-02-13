@@ -1,3 +1,4 @@
+<!-- Trang liên hệ -->
 <?php
 	include_once("phpmailer.php");
 	include_once("config.php");

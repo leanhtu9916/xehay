@@ -8,7 +8,7 @@
     
       <tr>
         <td>Tên hiển thị mới</td>
-        <td><input type="text" id="add" name="name" required="required"></td>
+        <td><input type="text" id="name" name="name" required="required"></td>
      </tr>
  <tr>
         <td colspan="2"><button style="margin: 0px 350px;" type="submit"  name="editname" class="btn btn-primary btn-lg" >LƯU</button></td>

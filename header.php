@@ -55,7 +55,7 @@
 										$dt->select("SELECT * FROM product_cat ORDER BY id desc");
 										while ($row=$dt->fetch()) {
 										?>
-										<li><a class="<?php if ($view=='product_cat' && $cat==$row['id'] && $status=='news' ) {echo 'current-menu-item';} ?>" href="?view=product_cat&cat=<?php echo $row['id'] ?>&status=news"><?php echo $row['name'] ?></a></li>
+										<li><a class="<?php if ($view=='product_cat' && $cat==$row['id'] && $status=='news' ) {echo 'current-menu-item';} ?>" href="?view=product_cat&cat=<?php echo $row['id'] ?>&status=news"><?php echo $row['name_dongxe'] ?></a></li>
 										<?php
 									}?>
 								</ul>
@@ -67,7 +67,7 @@
 										$dt->select("SELECT * FROM product_cat ORDER BY id desc");
 										while ($row=$dt->fetch()) {
 										?>
-										<li><a class="<?php if ( $view=='product_cat' && $cat==$row['id'] && $status=='old' ) {echo 'current-menu-item';} ?>" href="?view=product_cat&cat=<?php echo $row['id'] ?>&status=old"><?php echo $row['name'] ?></a></li>
+										<li><a class="<?php if ( $view=='product_cat' && $cat==$row['id'] && $status=='old' ) {echo 'current-menu-item';} ?>" href="?view=product_cat&cat=<?php echo $row['id'] ?>&status=old"><?php echo $row['name_dongxe'] ?></a></li>
 										<?php
 									}?>
 								</ul>
@@ -114,4 +114,5 @@
 		</div>
 	</div>
 </header>
+
 <!-- header -->

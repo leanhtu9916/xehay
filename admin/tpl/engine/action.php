@@ -4,11 +4,11 @@
 	$id=isset($_GET["id"])?$_GET["id"]:"";
 	$name=$_POST["name"];
 	if (isset($_POST['edit'])) {
-			$dt->command("UPDATE engine SET name='$name' WHERE id='$id'");
+			$dt->command("UPDATE engine SET name_engine='$name' WHERE id='$id'");
 			header("location: ../../index.php?view=engine&action=list");
 		
 	}elseif (isset($_POST['add'])) {
-		$dt->command("INSERT INTO engine(name) VALUES ('$name')");
+		$dt->command("INSERT INTO engine(name_engine) VALUES ('$name')");
 		header("location: ../../index.php?view=engine&action=add&success=1");
 	}
 	else{

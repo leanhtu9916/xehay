@@ -1,3 +1,4 @@
+<!-- Trang bài viết -->
 <?php
 	include_once("config.php");
 	$dt=new database();
@@ -47,7 +48,7 @@
 						<div class="list-item-car">
 							<div class="row">
 								<?php
-									$dt->select("SELECT * FROM product WHERE feature=1 ORDER BY id desc LIMIT 0,8");
+									$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND product.fuel = fuel.id AND product.engine = engine.id AND feature=1 ORDER BY product_id desc LIMIT 0,8");
 									while ($row=$dt->fetch()) {
 										?>
 										<div class="col-lg-3 col-md-6 col-12 mb-3">
@@ -56,12 +57,12 @@
 													<div class="ribbon ribbon-top-right">
 														<span><i class="fas fa-star"></i> Đặc Biệt</span>
 													</div>
-													<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+													<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 														<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 													</a>
 												</div>
 												<div class="info">
-													<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+													<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 													<p class="price">
 														<?php
 															if ($row['discount'] !="") {
@@ -86,21 +87,21 @@
 														<?php
 															if ($row['engine'] !="") {
 																?>
-																<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+																<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 																<?php
 															}
 														?>
 														<?php
 															if ($row['type'] !="") {
 																?>
-																<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+																<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 																<?php
 															}
 														?>
 														<?php
 															if ($row['fuel'] !="") {
 																?>
-																<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+																<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 																<?php
 															}
 														?>
@@ -129,7 +130,7 @@
 						<div class="list-item-car">
 							<div class="row">
 								<?php
-									$dt->select("SELECT * FROM product WHERE status='Xe mới' ORDER BY id desc LIMIT 0,8");
+									$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND product.fuel = fuel.id AND product.engine = engine.id AND status='Xe mới' ORDER BY product_id desc LIMIT 0,8");
 									while ($row=$dt->fetch()) {
 										?>
 										<div class="col-lg-3 col-md-6 col-12 mb-3">
@@ -138,12 +139,12 @@
 													<div class="ribbon ribbon-top-right">
 														<span><i class="fas fa-star"></i> Xe mới</span>
 													</div>
-													<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+													<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 														<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 													</a>
 												</div>
 												<div class="info">
-													<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+													<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 													<p class="price">
 														<?php
 															if ($row['discount'] !="") {
@@ -167,21 +168,21 @@
 														<?php
 															if ($row['engine'] !="") {
 																?>
-																<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+																<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 																<?php
 															}
 														?>
 														<?php
 															if ($row['type'] !="") {
 																?>
-																<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+																<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 																<?php
 															}
 														?>
 														<?php
 															if ($row['fuel'] !="") {
 																?>
-																<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+																<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 																<?php
 															}
 														?>
@@ -210,7 +211,7 @@
 						<div class="list-item-car">
 							<div class="row">
 								<?php
-									$dt->select("SELECT * FROM product WHERE status='Xe cũ' ORDER BY id desc LIMIT 0,8");
+									$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND product.fuel = fuel.id AND product.engine = engine.id AND status='Xe cũ' ORDER BY product_id desc LIMIT 0,8");
 									while ($row=$dt->fetch()) {
 										?>
 										<div class="col-lg-3 col-md-6 col-12 mb-3">
@@ -219,12 +220,12 @@
 													<div class="ribbon ribbon-top-right">
 														<span><i class="fas fa-star"></i> Xe cũ</span>
 													</div>
-													<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+													<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 														<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 													</a>
 												</div>
 												<div class="info">
-													<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+													<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 													<p class="price">
 														<?php
 															if ($row['discount'] !="") {
@@ -248,21 +249,21 @@
 														<?php
 															if ($row['engine'] !="") {
 																?>
-																<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+																<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 																<?php
 															}
 														?>
 														<?php
 															if ($row['type'] !="") {
 																?>
-																<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+																<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 																<?php
 															}
 														?>
 														<?php
 															if ($row['fuel'] !="") {
 																?>
-																<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+																<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 																<?php
 															}
 														?>
@@ -305,14 +306,17 @@
 		$data[]=$row2;
 	}
 	foreach ($data as $key => $value) {
-		$cat= $value['name'];
-		$dt->select("SELECT * FROM product WHERE category='$cat' ORDER BY id desc limit 0,8");
+		$cat= $value['id'];
+		$dt->select("SELECT * FROM product_cat WHERE id='$cat'");
+		$row = $dt->fetch(); 
+		$cat_name = $row['name_dongxe'];
+		$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type=type.id AND product.fuel=fuel.id AND product.engine=engine.id AND category='$cat' ORDER BY product_id desc limit 0,8");
 		if ($value['count'] !='0') {
 		?>
 		<!-- home-hangxe -->
 		<section class="home-hangxe list-item-car">
 			<div class="container">
-				<h2 class="heading text-center">GIÁ <?php echo $cat; ?> THÁNG  <?php echo date('m/Y'); ?></h2>
+				<h2 class="heading text-center">GIÁ <?php echo $cat_name; ?> THÁNG  <?php echo date('m/Y'); ?></h2>
 				<div class="row">
 					<?php
 					while ($row=$dt->fetch()) {
@@ -323,12 +327,12 @@
 										<div class="ribbon ribbon-top-right">
 											<span><i class="fas fa-star"></i> <?php echo $row['status']; ?></span>
 										</div>
-										<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+										<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 											<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 										</a>
 									</div>
 									<div class="info">
-										<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+										<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 										<p class="price">
 											<?php
 												if ($row['discount'] !="") {
@@ -352,21 +356,21 @@
 											<?php
 												if ($row['engine'] !="") {
 													?>
-													<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+													<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 													<?php
 												}
 											?>
 											<?php
 												if ($row['type'] !="") {
 													?>
-													<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+													<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 													<?php
 												}
 											?>
 											<?php
 												if ($row['fuel'] !="") {
 													?>
-													<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+													<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 													<?php
 												}
 											?>
@@ -421,7 +425,7 @@
 			<h2 class="heading">Xe mới đăng</h2>
 			<div class="product-feature_slide">
 				<?php
-					$dt->select("SELECT * FROM product ORDER BY id desc LIMIT 0,8");
+					$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id ORDER BY product_id desc LIMIT 0,8");
 					while ($row=$dt->fetch()) {
 						?>
 						<div class="item vip box-list-car-item">
@@ -429,12 +433,12 @@
 								<div class="ribbon ribbon-top-right">
 									<span><i class="fas fa-star"></i> <?php echo $row['status']; ?></span>
 								</div>
-								<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+								<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 									<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 								</a>
 							</div>
 							<div class="info">
-								<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+								<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 								<p class="price">
 									<?php
 										if ($row['discount'] !="") {
@@ -458,21 +462,21 @@
 									<?php
 										if ($row['engine'] !="") {
 											?>
-											<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+											<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 											<?php
 										}
 									?>
 									<?php
 										if ($row['type'] !="") {
 											?>
-											<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+											<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 											<?php
 										}
 									?>
 									<?php
 										if ($row['fuel'] !="") {
 											?>
-											<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+											<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 											<?php
 										}
 									?>

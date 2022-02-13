@@ -9,7 +9,7 @@
    <table class="table table-striped">
       <tr>
         <td>Dòng xe</td>
-        <td><input type="text" name="name" required="required" value="<?php echo $row['name'] ?>"  class="form-control" ></td>
+        <td><input type="text" id="name" name="name" required="required" value="<?php echo $row['name_dongxe'] ?>"  class="form-control" ></td>
      </tr>
 
      <tr>

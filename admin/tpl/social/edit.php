@@ -10,11 +10,11 @@
     <input  type="hidden" name="id" value="<?php echo $row2['id'] ?>" class="form-control" >
      <tr>
         <td>Hotline</td>
-        <td><input  type="text" id="add" name="hotline" value="<?php echo $row2['hotline'] ?>" required="required" class="form-control" ></td>
+        <td><input  type="text" id="name" name="hotline" value="<?php echo $row2['hotline'] ?>" required="required" class="form-control" ></td>
      </tr>
       <tr>
         <td>Zalo</td>
-        <td><input  type="text" id="add" name="zalo" value="<?php echo $row2['zalo'] ?>" required="required" class="form-control" ></td>
+        <td><input  type="text" id="name" name="zalo" value="<?php echo $row2['zalo'] ?>" required="required" class="form-control" ></td>
      </tr>
       <tr>
         <td>Email</td>

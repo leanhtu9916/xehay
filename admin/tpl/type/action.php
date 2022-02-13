@@ -4,11 +4,11 @@
 	$id=isset($_GET["id"])?$_GET["id"]:"";
 	$name=$_POST["name"];
 	if (isset($_POST['edit'])) {
-			$dt->command("UPDATE type SET name='$name' WHERE id='$id'");
+			$dt->command("UPDATE type SET name_type='$name' WHERE id='$id'");
 			header("location: ../../index.php?view=type&action=list");
 		
 	}elseif (isset($_POST['add'])) {
-		$dt->command("INSERT INTO type(name) VALUES ('$name')");
+		$dt->command("INSERT INTO type(name_type) VALUES ('$name')");
 		header("location: ../../index.php?view=type&action=add&success=1");
 	}
 	else{

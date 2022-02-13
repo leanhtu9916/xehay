@@ -1,8 +1,9 @@
+<!-- Trang chi tiết sản phẩm -->
 <?php
 	include_once("config.php");
 	$dt=new database();
 	$id=isset($_GET["id"])?$_GET["id"]:"";
-	$dt->select("SELECT * FROM product WHERE id='$id'");
+	$dt->select("SELECT * FROM product WHERE product_id='$id'");
 	$row=$dt->fetch();
 ?>
 <div id="content" class="mt-4 mb-4">

@@ -14,7 +14,7 @@
     else{
         $pag=$pag*12-12;
     }
-	$dt->select("SELECT * FROM product WHERE name LIKE '%$s%' ORDER BY id desc LIMIT $pag,12");
+	$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id AND name LIKE '%$s%' ORDER BY product_id desc LIMIT $pag,12");
 ?>
 
 <div id="content" class="mt-4 mb-4">
@@ -31,19 +31,20 @@
 							<div class="item vip box-list-car-item">
 								<div class="photo">
 									<div class="ribbon ribbon-top-right">
-										<span><i class="fas fa-star"></i> Xe mới</span>
+										<span><i class="fas fa-star"></i> <?php echo $row['status']; ?></span>
 									</div>
-									<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+									<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 										<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 									</a>
 								</div>
 								<div class="info">
-									<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+									<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 									<p class="price">
 										<?php
 											if ($row['discount'] !="") {
 												?>
 												<span class="regular"><?php echo $row['price']; ?></span>
+												<br>
 												<span class="sale"><?php echo $row['discount']; ?></span>
 												<?php
 											}else {
@@ -62,21 +63,21 @@
 										<?php
 											if ($row['engine'] !="") {
 												?>
-												<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+												<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 												<?php
 											}
 										?>
 										<?php
 											if ($row['type'] !="") {
 												?>
-												<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+												<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 												<?php
 											}
 										?>
 										<?php
 											if ($row['fuel'] !="") {
 												?>
-												<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+												<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 												<?php
 											}
 										?>
@@ -100,7 +101,7 @@
 			</div>	
 			<div class="pagination">
 			<?php
-					$dt->select("SELECT * FROM product WHERE name LIKE '%$s%'");
+					$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id AND name LIKE '%$s%'");
 					$count=$dt->num_rows();
 		            $pag2=ceil($count/12);
 		            $pag_ac=isset($_GET['pag'])?$_GET['pag']:1;

@@ -49,6 +49,7 @@ $dt=new database();
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
   <!-- <script type="text/javascript" src="tpl/product/ckeditor/ckeditor.js"></script> -->
   <script type="text/javascript" src="tpl/product/ckeditor1/ckeditor.js"></script>
+  <script type="text/javascript" src="tpl/product/ckfinder/ckfinder.js"></script>
   <!-- <script type="text/javascript" src="tpl/product/ckfinder/ckfinder.js"></script> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -814,7 +815,7 @@ $dt=new database();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script>
   $(function () {
-    $('#add').on('keypress', function (event) {
+    $('#name').on('keypress', function (event) {
     
       var regex = new RegExp("[!@#$%^&*<>]");
       var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);

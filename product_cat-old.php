@@ -1,3 +1,4 @@
+<!-- danh sách xe cũ -->
 <?php
 	include_once("config.php");
 	$dt=new database();
@@ -15,10 +16,11 @@
 	if ($id !="") {
 		$dt->select("SELECT * FROM product_cat WHERE id='$id' ");
 		$row=$dt->fetch();
-		$category = $row['name'];
-		$dt->select("SELECT * FROM product WHERE category='$category' AND status='Xe cũ' ORDER BY id desc LIMIT $pag,12");
+		$category = $row['id'];
+		$category_name = $row['name_dongxe'];
+		$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id AND category='$category' AND status='Xe cũ' ORDER BY product_id desc LIMIT $pag,12");
 	}else {
-		$dt->select("SELECT * FROM product WHERE status='Xe cũ' ORDER BY id desc LIMIT $pag,12");
+		$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id AND status='Xe cũ' ORDER BY product_id desc LIMIT $pag,12");
 	}
 ?>
 
@@ -27,7 +29,7 @@
 		<h3 class="page-heading">
 			<?php
 				if ($category!="") {
-					echo $category;
+					echo $category_name;
 				}else {
 					echo "Xe cũ";
 				}
@@ -44,12 +46,12 @@
 									<div class="ribbon ribbon-top-right">
 										<span><i class="fas fa-star"></i> Xe cũ</span>
 									</div>
-									<a href="?view=single-product&id=<?php echo $row['id']; ?>">
+									<a href="?view=single-product&id=<?php echo $row['product_id']; ?>">
 										<img src="admin/tpl/product/uploads/<?php echo $row['thumbnail']; ?>" alt="">
 									</a>
 								</div>
 								<div class="info">
-									<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['id']; ?>"><?php echo $row['name']; ?></a> </h3>
+									<h3 class="title"> <a href="?view=single-product&id=<?php echo $row['product_id']; ?>"><?php echo $row['name']; ?></a> </h3>
 									<p class="price">
 										<?php
 											if ($row['discount'] !="") {
@@ -73,21 +75,21 @@
 										<?php
 											if ($row['engine'] !="") {
 												?>
-												<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['engine']; ?></li>  
+												<li><i class="fas fa-cogs" aria-hidden="true"></i><?php echo $row['name_engine']; ?></li>  
 												<?php
 											}
 										?>
 										<?php
 											if ($row['type'] !="") {
 												?>
-												<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['type']; ?></li>  
+												<li><i class="fas fa-flag-checkered" aria-hidden="true"></i><?php echo $row['name_type']; ?></li>  
 												<?php
 											}
 										?>
 										<?php
 											if ($row['fuel'] !="") {
 												?>
-												<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['fuel']; ?></li>  
+												<li><i class="fas fa-gas-pump" aria-hidden="true"></i><?php echo $row['name_fuel']; ?></li>  
 												<?php
 											}
 										?>
@@ -114,11 +116,11 @@
 					if ($id !="") {
 						$dt->select("SELECT * FROM product_cat WHERE id='$id' ORDER BY id desc LIMIT $pag,12");
 						$row=$dt->fetch();
-						$category = $row['name'];
-						$dt->select("SELECT * FROM product WHERE category='$category' AND status='Xe cũ'  ORDER BY id desc LIMIT $pag,12");
+						$category = $row['id'];
+						$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id AND category='$category' AND status='Xe cũ'  ORDER BY product_id desc LIMIT $pag,12");
 						$count=$dt->num_rows();
 					}else {
-						$dt->select("SELECT * FROM product WHERE status='Xe cũ' ");
+						$dt->select("SELECT * FROM product,type,fuel,engine WHERE product.type = type.id AND  product.fuel = fuel.id AND  product.engine = engine.id AND status='Xe cũ' ");
 						$count=$dt->num_rows();
 					}
 		            $pag2=ceil($count/12);

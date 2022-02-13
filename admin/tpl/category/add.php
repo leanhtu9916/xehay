@@ -16,7 +16,7 @@
     
       <tr>
         <td>Chuyên mục</td>
-        <td><input type="text" id="add" name="name" required="required" value=""  class="form-control" ></td>
+        <td><input type="text" id="name" name="name" required="required" value=""  class="form-control" ></td>
      </tr>
 
      <tr>

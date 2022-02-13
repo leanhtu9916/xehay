@@ -20,7 +20,7 @@
      </tr>
        <tr>
         <td>Số điện thoại</td>
-        <td><input type="text" name="phone"  value="<?php echo $row2['phone'] ?>"   class="form-control" ></td>
+        <td><input type="text" id="name" name="phone"  value="<?php echo $row2['phone'] ?>"   class="form-control" ></td>
      </tr>
        <tr>
         <td>Địa chỉ</td>

@@ -18,19 +18,19 @@
       ?>
       <tr>
         <td>Tên Sản Phẩm</td>
-        <td><input type="text" id="add"name="name"  class="form-control" required="required"></td>
+        <td><input type="text" name="name"  class="form-control" required="required" id="name"></td>
      </tr>
       <tr>
         <td>Giá</td>
-        <td><input type="text" id="add" name="price"   class="form-control" required="required"></td>
+        <td><input type="text" name="price"   class="form-control" required="required"></td>
      </tr>
       <tr>
         <td>Giá KM</td>
-        <td><input type="text" id="add" name="discount"  class="form-control" required="required" ></td>
+        <td><input type="text"name="discount"  class="form-control"  ></td>
      </tr>
       <tr>
         <td>Ảnh đại diện</td>
-        <td><input type="file" name="thumbnail" class="form-control" ></td>
+        <td><input type="file" name="thumbnail" class="form-control" required="required" ></td>
      </tr>
       <tr>
         <td>Năm sản xuất</td>
@@ -43,7 +43,8 @@
                 $dt->select('SELECT * FROM engine');
                 while ($row=$dt->fetch()) {
                   ?>
-                  <option><?php echo $row['name'] ?></option>
+                  <option value="<?php echo $row['id']; ?>"><?php echo $row['name_engine'] ?></option>
+                  
                   <?php
                 }
               ?>
@@ -57,7 +58,7 @@
                 $dt->select('SELECT * FROM type');
                 while ($row=$dt->fetch()) {
                   ?>
-                  <option><?php echo $row['name'] ?></option>
+                   <option value="<?php echo $row['id']; ?>"><?php echo $row['name_type'] ?></option>
                   <?php
                 }
               ?>
@@ -71,7 +72,7 @@
                 $dt->select('SELECT * FROM fuel');
                 while ($row=$dt->fetch()) {
                   ?>
-                  <option><?php echo $row['name'] ?></option>
+                  <option value="<?php echo $row['id']; ?>"><?php echo $row['name_fuel'] ?></option>
                   <?php
                 }
               ?>
@@ -84,7 +85,7 @@
             $dt->select('SELECT * FROM product_cat');
             while ($row=$dt->fetch()) {
               ?>
-              <option><?php echo $row['name'] ?></option>
+              <option value="<?php echo $row['id'] ?>"><?php echo $row['name_dongxe'] ?></option>
               <?php
             }
           ?>

@@ -17,9 +17,9 @@
 		$count = $row['count'];
 		if($count==0){
 			$dt->command("DELETE FROM category WHERE id='$id' ");
-			header("location: ../../index.php?view=category&action=list&success=1");
+			header("location: ../../index.php?view=category&action=list&done=1");
 		}else{
-			header("location: ../../index.php?view=category&action=list&success=0");
+			header("location: ../../index.php?view=category&action=list&done=0");
 		}
 		$dt->command("UPDATE post SET category='' WHERE category='$category'");
 		
