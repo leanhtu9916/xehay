@@ -76,7 +76,13 @@
 							<li class="menu-item-has-children">
 								<a class="<?php if ($view=='category' && $id=='') {echo 'current-menu-item';} ?>" href="?view=category">Tin tức</a>
 								<ul class="sub-menu">
-									<li><a class="<?php if ($view=='category' && $id=='5') {echo 'current-menu-item';} ?>" href="?view=category&id=5">Xe hay</a></li>
+								<?php
+										$dt->select("SELECT * FROM category ORDER BY id desc");
+										while ($row=$dt->fetch()) {
+										?>
+										<li><a class="<?php if ( $view=='category' && $cat==$row['id'] ) {echo 'current-menu-item';} ?>" href="?view=category&id=<?php echo $row['id'] ?>"><?php echo $row['name'] ?></a></li>
+										<?php
+									}?>
 								</ul>
 							</li>
 							<?php

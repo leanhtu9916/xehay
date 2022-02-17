@@ -59,7 +59,7 @@
 			$dt->command("UPDATE product_cat SET count='$count' WHERE id='$category'");
 			$dt->command("UPDATE product SET name='$name',price='$price',
 			discount='$discount',fuel='$fuel',year='$year',engine='$engine',type='$type',category='$category',tong_quan='$tong_quan',thumbnail='$image_link',ngoai_that='$ngoai_that',noi_that='$noi_that',van_hanh='$van_hanh',an_toan='$an_toan',tien_ich='$tien_ich',status='$status',thong_so_ky_thuat='$thong_so_ky_thuat',thu_vien_anh='$thu_vien_anh',khung_gam='$khung_gam' WHERE product_id='$id'");
-			header("location: ../../index.php?view=product&action=list&a=23");
+			header("location: ../../index.php?view=product&action=list&a=12");
 		}
 			
 		

@@ -155,13 +155,7 @@
 					<textarea name="content" placeholder=""></textarea>
 					<input type="submit" name="submit" value="Gửi yêu cầu">
 				</form>
-				<?php
-					if ($notice !="") {
-						?>
-						<p class="alert alert-danger"><?php echo $notice; ?></p>
-						<?php
-					}
-				?>
+				
 			</div>
 		</div>
 	</div>
@@ -189,13 +183,7 @@
 					<textarea name="content" placeholder=""></textarea>
 					<input type="submit" name="submit" value="Gửi yêu cầu">
 				</form>
-				<?php
-					if ($notice !="") {
-						?>
-						<p class="alert alert-danger"><?php echo $notice; ?></p>
-						<?php
-					}
-				?>
+			
 			</div>
 		</div>
 	</div>

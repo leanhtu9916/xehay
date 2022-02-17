@@ -22,7 +22,7 @@
      </tr>
       <tr>
         <td>Ảnh đại diện</td>
-        <td><input type="file" name="thumbnail" class="form-control" ></td>
+        <td><input type="file" name="thumbnail" class="form-control" required="required" ></td>
      </tr>
 
      <tr>

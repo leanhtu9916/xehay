@@ -14,7 +14,7 @@
 		$title=$_POST['title'];
 		$content=$_POST['content'];
 
-	    $message = "Họ tên: ".$name."<br> Số điện thoại: ".$phone."<br> Email: ".$email."<br> Địa chỉ: ".$address."<br>Nội dung: ".$content;
+	   $message = "Họ tên: ".$name."<br> Số điện thoại: ".$phone."<br> Email: ".$email."<br> Địa chỉ: ".$address."<br>Nội dung: ".$content;
 	    //Content
 	    $mail->isHTML(true);                                  // Set email format to HTML
 	    $mail->Subject = 'Contact';

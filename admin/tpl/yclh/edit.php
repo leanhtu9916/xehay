@@ -3,7 +3,7 @@
   include_once("config.php");
   $dt=new database();
   $id=isset($_GET["id"])?$_GET["id"]:"";
-   $dt->select("SELECT * FROM lienhe WHERE id='$id' ");
+   $dt->select("SELECT * FROM lienhe,status WHERE lienhe.status = status.id_status AND id='$id' ");
    $row2=$dt->fetch();
 ?>
 <form action="tpl/yclh/action.php?id=<?php echo $row2['id'] ?>" method="post" enctype="multipart/form-data">
@@ -36,19 +36,19 @@
       <tr>
         <td>status</td>
         <td><select name="status" id="" class="form-control">
-        <option value="<?php echo $row2['status'] ?>" selected><?php echo $row2['name_status'] ?></option>
+               <option value="<?php echo $row2['status'] ?>" selected><?php echo $row2['name_status'] ?></option>
                <?php
                $dt->select('SELECT * FROM status');
                while ($row = $dt->fetch()) {
-                  if ($row['id'] != $row2['status']) {
+                  if ($row['id_status'] != $row2['status']) {
 
                ?>
-                     <option value="<?php echo $row['id']; ?>"><?php echo $row['name_status'] ?></option>
+                     <option value="<?php echo $row['id_status']; ?>"><?php echo $row['name_status'] ?></option>
                <?php
                   }
                }
                ?>
-        </select></td>
+            </select></td>
      </tr>
      <tr>
         <td colspan="2"><button style="margin: 0px 350px;" type="submit"  name="edit" class="btn btn-primary btn-lg" >EDIT</button></td>

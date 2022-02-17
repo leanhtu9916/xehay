@@ -2,7 +2,7 @@
 if (isset($_GET['done'])) {
 	if ($_GET['done'] == 1) { ?>
 		<div class="alert alert-danger" style="text-align: center;">
-			Xóa thành công
+			Xóa thành công 
 		</div>
 	<?php
 	} else { ?>

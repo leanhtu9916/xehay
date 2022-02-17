@@ -3,7 +3,7 @@
   include_once("config.php");
   $dt=new database();
   $id=isset($_GET["id"])?$_GET["id"]:"";
-   $dt->select("SELECT * FROM contact_form WHERE id='$id' ");
+   $dt->select("SELECT * FROM contact_form,status WHERE contact_form.status = status.id_status AND id='$id' ");
    $row2=$dt->fetch();
 ?>
 <form action="tpl/contact_form/action.php?id=<?php echo $row2['id'] ?>" method="post" enctype="multipart/form-data">
@@ -36,17 +36,20 @@
      </tr>
       <tr>
         <td>status</td>
-        <td><select name="status">
-          <option>Mới</option>
-          <?php
-            $dt->select('SELECT * FROM status');
-            while ($row=$dt->fetch()) {
-              ?>
-              <option><?php echo $row['name'] ?></option>
-              <?php
-            }
-          ?>
-        </select></td>
+        <td><select name="status" id="" class="form-control">
+               <option value="<?php echo $row2['status'] ?>" selected><?php echo $row2['name_status'] ?></option>
+               <?php
+               $dt->select('SELECT * FROM status');
+               while ($row = $dt->fetch()) {
+                  if ($row['id_status'] != $row2['status']) {
+
+               ?>
+                     <option value="<?php echo $row['id_status']; ?>"><?php echo $row['name_status'] ?></option>
+               <?php
+                  }
+               }
+               ?>
+            </select></td>
      </tr>
      <tr>
         <td colspan="2"><button style="margin: 0px 350px;" type="submit"  name="edit" class="btn btn-primary btn-lg" >LƯU</button></td>

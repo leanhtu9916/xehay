@@ -128,11 +128,11 @@
 		            for ($i=1; $i <=$pag2 ; $i++) { 
 		            	if ($id !="") {
 		            		?>
-		            		<li><a class="<?php if($i == $pag_ac){ echo 'active-pag';} ?>" href="?view=product_cat&id=<?php echo $id; ?>&pag=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+		            		<li><a class="<?php if($i == $pag_ac){ echo 'active-pag';} ?>" href="?view=product_cat&status=news&id=<?php echo $id; ?>&pag=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 		            		<?php
 		            	}else {
 		               ?>
-		               <li><a class="<?php if($i == $pag_ac){ echo 'active-pag';} ?>" href="?view=product_cat&pag=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+		               <li><a class="<?php if($i == $pag_ac){ echo 'active-pag';} ?>" href="?view=product_cat&status=news&pag=<?php echo $i; ?>"><?php echo $i; ?></a></li>
 		               <?php
 		          		}
 			        }

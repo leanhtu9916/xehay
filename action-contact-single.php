@@ -20,6 +20,6 @@
 	$mail->Body    =  $message;
 	$mail->send();
 
-	$dt->command("INSERT INTO lienhe(name,email,phone,address,sanpham,content,status) VALUES ('$name','$email','$phone','$address','$sanpham','$content','Mới')");
+	$dt->command("INSERT INTO lienhe(name,email,phone,address,sanpham,content,status) VALUES ('$name','$email','$phone','$address','$sanpham','$content','3')");
 	header("location: index.php?view=single-product&id=".$id."&sucess=1");
 ?>

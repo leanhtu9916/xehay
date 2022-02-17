@@ -22,7 +22,7 @@
 							$pag=$pag*10-10;
 						}
 			$stt=0;
-			$dt->select("SELECT* FROM lienhe ORDER BY id desc limit $pag,10 ");
+			$dt->select("SELECT* FROM lienhe,status WHERE lienhe.status= status.id_status ORDER BY id desc limit $pag,10 ");
 			while ($row=$dt->fetch()) {
 				$stt++;
 				?>
@@ -34,7 +34,7 @@
 					<td><?php echo $row['phone'] ?></td>
 					<td><?php echo $row['address'] ?></td>
 					<td><?php echo $row['content'] ?></td>
-					<td><?php echo $row['status'] ?></td>
+					<td><?php echo $row['name_status'] ?></td>
 					<td><?php echo $row['created'] ?></td>
 					<td>
 						<a class="delete" href="tpl/yclh/action.php?id=<?php echo $row['id'] ?>" class="navbar-link"><i style="color: red" class="fas fa-minus-circle"></i></a> || <a href="index.php?view=yclh&action=edit&id=<?php echo $row['id'] ?>" class="navbar-link"><i style="color: #444" class="fas fa-pencil-alt"></i></a>
